@@ -35,10 +35,10 @@ pipeline {
           steps {
               script {
                   try {
-                    sh "docker service update --image ${env.imageName} demo"
+                    sh "docker service update --image ${env.imageName} devops_docker"
                     sh "echo update service"
                   } catch (e){
-                    sh "docker service create --name demo -p 80:80 ${env.imageName}"
+                    sh "docker service create --name devops_docker -p 80:80 ${env.imageName}"
                     sh "echo create service"
                   }
               }
